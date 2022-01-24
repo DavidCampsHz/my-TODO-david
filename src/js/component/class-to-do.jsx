@@ -6,11 +6,10 @@ const ClassToDo = () => {
 
 	const handleAddItem = () => {
 		setListItems([...listItems, task]);
+		setTask("");
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(newTask);
-		// setNewTask("");
 		handleAddItem({
 			done: false,
 			id: (+new Date()).toString(),
@@ -19,25 +18,12 @@ const ClassToDo = () => {
 	};
 
 	const onClickRemoveTask = (indexToDelete) => {
-		console.log(indexToDelete);
-		listItems.splice(indexToDelete, 1);
-		setListItems(listItems);
-		console.log(listItems);
-
-		// listItems.filter((_, index) => {
-		//console.log("Index", index);
-		//console.log("itemToDelete", indexToDelete);
-		// 	// console.log(index);
-		// 	// console.log(listItems);
-		// 	//console.log("one at the time");
-		// 	index !== indexToDelete;
-		//console.log(updateListItems);
-		//setListItems(updateListItems);
+		let newListItems = [...listItems];
+		newListItems.splice(indexToDelete, 1);
+		console.log(newListItems);
+		setListItems(newListItems);
 	};
-	// const checkItem = listItems.map((task) => (
-	// 	// <CheckBox key={task.id} data={task} onChange={onChangeStatus} />
-	// 	<button className="button green">X</button>
-	// ));
+
 	return (
 		<>
 			<input
@@ -45,6 +31,12 @@ const ClassToDo = () => {
 				className="text"
 				value={task}
 				onChange={(e) => setTask(e.target.value)}
+				onKeyDown={(e) => {
+					if (e.key == "Enter") {
+						handleAddItem();
+						setTask("");
+					}
+				}}
 			/>
 			<button className="button" onClick={handleAddItem}>
 				Add
@@ -62,7 +54,9 @@ const ClassToDo = () => {
 				})}
 				{listItems.length ? (
 					<p>
-						<button className="button" onClick={onClickRemoveTask}>
+						<button
+							className="button"
+							onClick={() => setListItems([])}>
 							Delete all tasks
 						</button>
 					</p>
