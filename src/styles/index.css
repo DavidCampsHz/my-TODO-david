@@ -1,0 +1,50 @@
+body{
+    background-image:url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg');
+}
+
+.container{
+    width: 700px;
+    margin-top: 10%;
+    color: white;
+    border: 1px solid #f5f2f3;
+    text-align: center;
+}
+
+.todo-list {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 500px;
+}
+
+.title-todo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 700px;
+    margin-top: 100px;
+}
+
+.text {
+    width: 400px;
+    height: 40px;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.button{
+    height: 40px;
+}
+
+.remove-button{
+    margin-left: 200px;
+}
+
+.clearfix{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.task-item{
+    width: 400px;
+    text-align: center;
+}
