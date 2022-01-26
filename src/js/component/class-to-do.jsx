@@ -51,7 +51,9 @@ const ClassToDo = () => {
 						{listItems.map((item, index) => {
 							return (
 								<div className="clearfix" key={index}>
-									<p>{item}</p>
+									<div className="task-item">
+										<p>{item}</p>
+									</div>
 									<button
 										className="remove-button"
 										onClick={() =>
